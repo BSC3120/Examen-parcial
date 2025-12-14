@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+/*-------------------------------*/ 
+/* --- 1. VARIABLES GLOBALES --- */
+/*-------------------------------*/ 
+/* Define los colores y la tipografía base del sitio. */
+
+:root {
+    --color-primary: #7d26c9;
+    --color-bottom: #652bdf;
+    --color-texto: #000;
+    --color-texto-invertido: #fff;
+    --color-border: #e7eaed;
+    --color-linea: #a5a5a7;
+    --color-texto2: #FFFFFF; 
+    --purple-hover: #d7bff7;
+    --font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+/*------------------------------------------*/ 
+/* --- 2. CSS RESET Y ARQUITECTURA BASE --- */
+/*------------------------------------------*/ 
+/* Selector Universal: Asegura el modelo de caja consistente */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML: La Raíz del Viewport y la Base REM */
+
+html {
+    font-size: 65%;
+    scroll-behavior:smooth;
+    font-family: var(--font-family);
+}
+
+
+body {
+    font-size: 1.6rem;
+    color: var(--color-texto);
+    background: var(--color-texto-invertido);
+    min-height: 200vh;
+    background-color: rgb(252, 251, 255);
+}
+
+/* Reset de listas y enlaces */
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-texto);
+}
+
+/*------------------------------*/ 
+/*--- 3. ESTILOS DEL HEADER --- */
+/*------------------------------*/ 
+
+.header {
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #fff;
+    backdrop-filter: none;
+}
+
+
+/*------------------------------*/ 
+/* --- 4. LOGO Y NAVEGACIÓN --- */
+/*------------------------------*/ 
+
+/* Contenedor centralizado */
+.nav-bar__menu {
+    max-width: 1022px;
+    min-height: 75px;
+    margin: auto;
+    padding: 16px;
+    display: flex;
+    gap: 25px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-container {
+    margin-left: 44px;
+}
+
+.logo-and-menu-group {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+}
+
+.logo-img {
+    max-height: 34px;
+    display: block;
+}
+
+.menu-ul {
+    display: flex;
+    height: 32px;
+    align-items: center;
+    gap: 0.85rem;
+        
+}
+
+.menu-ul::after {
+    content: "";
+    display: inline-block;
+    width: 0.5px;
+    height: 24px;
+    background: var(--color-linea);
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.menu-ul li:last-child a {
+    padding-right: 18px;
+}
+
+.menu-ul a {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    border-radius: 999px;
+    position: relative;
+    top: -2px;
+    color: var(--color-texto);
+}
+
+
+.menu-ul a:hover {
+    color: var(--color-primary);
+}
+
+/*-------------------------------*/ 
+/* --- 5. ESTILOS DE BOTONES --- */
+/*-------------------------------*/ 
+
+.menu-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.btn {
+    padding: 8px 24px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 550;
+    cursor: pointer;
+    transition: all .25s ease;
+    border: 1px solid transparent;
+    letter-spacing: .02857em;
+    
+}
+
+.btn:hover {
+    background-color: var(--purple-hover);
+    color: var(--color-bottom);
+}
+
+/* Botón 1: Espacio Nave (Outline/Contorno) */
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid rgba(101, 43, 223, 0.8); 
+    color: var(--color-bottom); 
+}
+
+/* Botón 2: Entrar a Nave (Primary/Principal) */
+
+.btn-primary {
+    background-color: var(--color-bottom);
+    color: var(--color-texto2); 
+}
+
+.btn-primary:hover {
+    border-color: var(--color-bottom); /* se mantiene oscuro */
+}
+
+.btn-primary {
+    border: 1px solid var(--color-bottom);
+}
+
+/*---------------------------------*/ 
+/* --- 6. ESTILOS DE SECCIONES --- */
+/*---------------------------------*/ 
+
+.hero-banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 3rem;
+    background-color: rgb(252, 251, 255);
+}
+
+.image-banner {
+    width: 1000px;
+    height: 100%;
+    border-radius: 28px;
+    height: auto;
+    display: block;
+    position: relative;
+    top: -5px;
+}
+
+.hero-carrousel__button {
+    width: 100%;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-carrousel__button {
+    width: 1000px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 20px;
+}
+
+.separator1 {
+    width: 100%;
+    height: 64px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section2 {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    margin-top: 33px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: -.045em;
+    font-weight: 700;
+
+}
+
+.separator2 {
+    width: 100%;
+    height: 32px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/*-------------------------------*/ 
+/* --- 4. TARJETAS FLOTANTES --- */
+/*-------------------------------*/ 
+
+.cards-section {
+    width: 1022px;
+    height: 260px;
+    margin: 12px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px
+}
+
+/* TARJETA */
+.card {
+    width: 280px;
+    height: 260px;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+}
+
+.card-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 19px;
+    width: 62px;
+    height: 62px;
+    background: #f0eafc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.image-icon {
+    font-size: 24px;
+    color: #7d26c9;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.card .card-icon i.bi {
+    color: #7d26c9 !important;
+    font-size: 24px;
+    display: block;
+}
+
+.fly-historis {
+    width: 900px;
+    height: 134px;
+    background-color: #360c72;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 30px;
+    box-sizing: border-box;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------*/ 
+/* --- MEDIA QUERIES (RESPONSIVIDAD BÁSICA) --- */
+/*----------------------------------------------*/ 
+
+@media (max-width: 950px) {
+    .menu-ul {
+        gap: 2rem; /* Reduce el espacio entre ítems en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 800px) {
+    /* Ocultar el menú de navegación para pantallas pequeñas/móviles */
+    .menu-ul {
+        display: none;
+    }
+    .nav-bar__menu {
+        justify-content: space-between; /* El logo y los botones se separan al máximo */
+    }
+    .nav-bar {
+        width: 95%; /* Usamos más espacio en pantallas estrechas */
+    }
+}
