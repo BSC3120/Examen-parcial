@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 
 /*-------------------------------*/ 
 /* --- 1. VARIABLES GLOBALES --- */
@@ -7,196 +5,235 @@
 /* Define los colores y la tipografía base del sitio. */
 
 :root {
-    --color-primary: #7d26c9;
-    --color-bottom: #652bdf;
-    --color-texto: #000;
-    --color-texto-invertido: #fff;
-    --color-border: #e7eaed;
-    --color-linea: #a5a5a7;
-    --color-texto2: #FFFFFF; 
-    --purple-hover: #d7bff7;
-    --font-family: 'Inter', Arial, Helvetica, sans-serif;
+    --primary-color: #652bdf;
+    --primary-hover: #531eca;
+    --secondary-color: #31006F;
+    --text-color: #2b2b2b;
+    --bg-color: #ffffff;
+    --bg-icon: #e4d7ff;
+    --bg-body: rgb(252, 251, 255);
+    --white: #ffffff;
+    --gray-light: #e7eaed;
+    --gray-variant:#bebebe;
+    --gray-text: #666666;
+    --font-main: "Inter", sans-serif;
+    --max-width: 1022px;
 }
+
 /*------------------------------------------*/ 
 /* --- 2. CSS RESET Y ARQUITECTURA BASE --- */
 /*------------------------------------------*/ 
-/* Selector Universal: Asegura el modelo de caja consistente */
+
+/* Reseteo Universal */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
-/* HTML: La Raíz del Viewport y la Base REM */
-
-html {
-    font-size: 65%;
-    scroll-behavior:smooth;
-    font-family: var(--font-family);
-}
-
-
+/* Estilos Base para el Body */
 body {
-    font-size: 1.6rem;
-    color: var(--color-texto);
-    background: var(--color-texto-invertido);
-    min-height: 200vh;
-    background-color: rgb(252, 251, 255);
+    font-family: var(--font-main);
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Reset de listas y enlaces */
-ul, ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
+/* Estilos Base para Enlaces */
 a {
     text-decoration: none;
-    color: var(--color-texto);
+    color: inherit;
+    transition: 0.2s ease;
 }
+
+/* Reseteo de listas */
+ul, ol {
+    list-style: none;
+}
+
+/* Estilo Base para imagenes */
+img {
+    max-width: 100%;
+    display: block;
+}
+
 
 /*------------------------------*/ 
 /*--- 3. ESTILOS DEL HEADER --- */
 /*------------------------------*/ 
 
-.header {
-    border-bottom: 1px solid var(--color-border);
+header {
+    background-color: var(--white);
+    width: 100%;
+    height: 75px;
     position: sticky;
     top: 0;
-    z-index: 100;
-    width: 100%;
-    background: #fff;
-    backdrop-filter: none;
+    z-index: 1000;
 }
-
 
 /*------------------------------*/ 
 /* --- 4. LOGO Y NAVEGACIÓN --- */
 /*------------------------------*/ 
 
-/* Contenedor centralizado */
-.nav-bar__menu {
-    max-width: 1022px;
-    min-height: 75px;
-    margin: auto;
-    padding: 16px;
+/* Barra de Navegación*/
+nav {
+    background-color: var(--white);
+    height: 75px;
+    width: 100%;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+/* Contenedor Interno de Navegación*/
+.navContainer {
     display: flex;
-    gap: 25px;
     justify-content: flex-start;
     align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    max-width: var(--max-width);
 }
 
-.logo-container {
-    margin-left: 44px;
-}
-
-.logo-and-menu-group {
+/* Logo */
+.logo {
     display: flex;
     align-items: center;
-    gap: 2.2rem;
+    flex-shrink: 0;
+    padding-left: 60px;
+    margin-right: 10px;
 }
 
-.logo-img {
-    max-height: 34px;
+.logo img {
+    height: 33.7px;
+    width: auto;
+}
+
+/* Navbar Móvil */
+.navContainer-Mobile {
+    height: 56px;
+    display: none;
+    align-items: center;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--gray-light);
+}
+
+/* Logo Móvil */
+.logoMobile {
+    display: none;
+}
+
+.logoMobile img {
+    height: 32px;
+}
+
+/* Menu Hamburguesa */
+.menu-icon {
+    display: none;
+    height: 24px;
+    width: 24px;
+    margin-left: 20px;
+}
+
+.menu-icon svg {
+    width: 100%;
+    height: 100%;
+    color: var(--text-color);
+}
+
+/* Lista de enlaces */
+.link-List {
+    display: flex;
+    align-items:flex-end;
+    gap: 0px;
+    margin: 0;
+}
+
+.list-object {
+    padding: 8px 26px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-object a:hover {
+    color: var(--secondary-color);
+    background-color: var(--bg-icon);
+}
+
+/* Grupo Derecho Header */
+.right-group {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    padding-right: 20px;
+}
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background-color: var(--gray-variant);
     display: block;
 }
 
-.menu-ul {
+.header-buttons {
     display: flex;
-    height: 32px;
     align-items: center;
-    gap: 0.85rem;
-        
-}
-
-.menu-ul::after {
-    content: "";
-    display: inline-block;
-    width: 0.5px;
-    height: 24px;
-    background: var(--color-linea);
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-.menu-ul li:last-child a {
-    padding-right: 18px;
-}
-
-.menu-ul a {
-    padding: 10px 20px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0px;
-    border-radius: 999px;
-    position: relative;
-    top: -2px;
-    color: var(--color-texto);
-}
-
-
-.menu-ul a:hover {
-    color: var(--color-primary);
+    gap: 4px;
 }
 
 /*-------------------------------*/ 
-/* --- 5. ESTILOS DE BOTONES --- */
+/* ----- 5. BOTONES HEADER------ */
 /*-------------------------------*/ 
 
-.menu-buttons {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-    margin-left: 0px;
-    padding-left: 0px;
-}
-
-.btn {
-    padding: 8px 24px;
-    border-radius: 999px;
+/* Estilo base botones */
+.button-header {
+    padding: 6px 30px;
+    border-radius: 50px;
     font-size: 13px;
-    font-weight: 550;
-    cursor: pointer;
-    transition: all .25s ease;
-    border: 1px solid transparent;
-    letter-spacing: .02857em;
-    
+    font-weight: 700;
+    white-space: nowrap;
+    height: 37px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn:hover {
-    background-color: var(--purple-hover);
-    color: var(--color-bottom);
+/* contorno botones */
+.button-line {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
 }
 
-/* Botón 1: Espacio Nave (Outline/Contorno) */
-
-.btn-outline {
-    background-color: transparent;
-    border: 1px solid rgba(101, 43, 223, 0.8); 
-    color: var(--color-bottom); 
+.button-line:hover {
+    background-color: #f3eaff;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
 }
 
-/* Botón 2: Entrar a Nave (Primary/Principal) */
-
-.btn-primary {
-    background-color: var(--color-bottom);
-    color: var(--color-texto2); 
+/* boton relleno */
+.button-finish {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 1px solid var(--primary-color);
 }
 
-.btn-primary:hover {
-    border-color: var(--color-bottom); /* se mantiene oscuro */
-}
-
-.btn-primary {
-    border: 1px solid var(--color-bottom);
+.button-finish:hover {
+    background-color: #f3eaff;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
 }
 
 /*---------------------------------*/ 
 /* --- 6. ESTILOS DE SECCIONES --- */
 /*---------------------------------*/ 
 
+/* Banner Principal */
 .hero-banner {
     display: flex;
     justify-content: center;
@@ -206,163 +243,506 @@ a {
 }
 
 .image-banner {
-    width: 1000px;
+    max-width: 68.5%;
     height: 100%;
     border-radius: 28px;
     height: auto;
     display: block;
     position: relative;
-    top: -5px;
+    top: -22px;
 }
 
+/* Contenedor de Imagen de boton carrousel */
 .hero-carrousel__button {
     width: 100%;
-    height: 24px;
+    height: 65px;
     display: flex;
     justify-content: center;
+    background-color: rgb(252, 251, 255);
 }
 
+/* Imagen insertada de boton carrousel */
 .image-carrousel__button {
-    width: 1000px;
+    width: 800px;
     display: block;
     margin: 0 auto;
     position: relative;
-    top: 20px;
+    top: -18px;
+    object-fit: contain;
 }
 
-.separator1 {
-    width: 100%;
-    height: 64px;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+/* Contenedor estandard */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.hero-section2 {
-    display: flex;
-    justify-content: center;
-    font-size: 24px;
-    margin-top: 33px;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: -.045em;
+/* Titulo Principal */
+.main-title {
+    font-size: 2.3rem;
     font-weight: 700;
-
+    letter-spacing: -0.05em;
+    margin-bottom: 16px;
+    line-height: 1.2;
 }
 
-.separator2 {
-    width: 100%;
-    height: 32px;
-    background-color: transparent;
-    display: flex;
+/* Subtitulo */
+.main-subtitle {
+    color: var(--gray-text);
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+/* Espaciador */
+.space-a {
+    height: 20px;
+}
+
+.bottom-space {
+    height: 80px;
+}
+
+/*----------------------------------*/ 
+/* ----- 7. BOTONES GENERALES------ */
+/*----------------------------------*/ 
+
+/* Estilo de botones de contenido */
+.btn {
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color)
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.btn-white:hover {
+    background-color: black;
+    color: #e4d7ff;
 }
 
 /*-------------------------------*/ 
-/* --- 4. TARJETAS FLOTANTES --- */
+/* --- 8. TARJETAS FLOTANTES --- */
 /*-------------------------------*/ 
 
-.cards-section {
-    width: 1022px;
-    height: 260px;
-    margin: 12px auto 0;
+/* Bloque de tarjetas */
+.cards-block {
     display: flex;
-    justify-content: center;
-    gap: 20px
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
-/* TARJETA */
+/* Tarjeta individual */
 .card {
-    width: 280px;
-    height: 260px;
-    background-color: #ffffff;
-    padding: 24px;
-    border-radius: 20px;
-    box-sizing: border-box;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
+    background: var(--white);
+    flex: 1;
+    min-width: 280px;
+    padding: 32px;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
 }
 
-.card-icon {
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Recuandro iconos */
+.icon-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 19px;
-    width: 62px;
-    height: 62px;
+    padding: 10px;
+    width: 56px;
+    height: 56px;
     background: #f0eafc;
     border-radius: 8px;
     box-sizing: border-box;
 }
 
-.image-icon {
-    font-size: 24px;
-    color: #7d26c9;
-    display: block;
+.card:hover .icon-container {
+    color: var(--secondary-color);
 }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+/* Titulo card */
+.card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
-.card .card-icon i.bi {
-    color: #7d26c9 !important;
-    font-size: 24px;
-    display: block;
+/* Parrafo card */
+.card p {
+    color: var(--gray-text);
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
-.fly-historis {
-    width: 900px;
-    height: 134px;
-    background-color: #360c72;
-    padding: 24px;
+/*--------------------------------*/ 
+/* ----- 9. BANNERS SECTION ----- */
+/*--------------------------------*/ 
+
+.banner-stories {
+    background-color: var(--secondary-color);
+    border-radius: 32px;
+    padding: 30px 60px;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    text-align: left;
+    max-width: 930px;
+    margin: 0 auto; 
+}
+
+/* Titulo del banner */
+.banner-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+/* Parrafo del banner */
+.banner-text p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+
+/*----------------------------------*/ 
+/* ----- 10. METODOS DE COBRO ----- */
+/*----------------------------------*/ 
+
+.metodos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.metodo-card {
+    background: var(--white);
+    border-radius: 32px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 40px;
+}
+
+.metodo-info {
+    flex: 1;
+}
+
+.metodo-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.metodo-info p {
+    color: var(--gray-text);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 100px;
+}
+
+.metodo-img {
+    flex: 1;
+    display: flex;
     justify-content: center;
-    border-radius: 30px;
-    box-sizing: border-box;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
+}
+
+.metodo-img img {
+    max-height: 300px;
+    width: auto;
+    transition: transform 0.4s ease;
+}
+
+.metodo-card:hover .metodo-img img {
+    transform: scale(1.05);
+}
+
+.metodo-card.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+/*------------------------*/ 
+/* ----- 12. FOOTER ----- */
+/*------------------------*/ 
+
+/* Contenedor principal del footer */
+.footer {
+    background: var(--bg-color);
+    padding: 24px;
+}
+
+/* Contenedor interno */
+.footer-container {
+    max-width: 920px;
     margin: 0 auto;
+    border-bottom: 1px var(--gray-variant);
+}
+
+/* Logo de la marca */
+.brand-logo {
+    margin-bottom: 10px;
+}
+
+.footer-brand img {
+    width: 40px;
+}
+
+/* Columnas del footer */
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Titulo de cada columna */
+.footer-col h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-color);
+}
+
+/* Lista de nelaces */
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+/* Enlaces individuales */
+.footer-col a {
+    font-size: 13px;
+    color: var(--text-color);
+    transition: color .2s ease;
+}
+
+.footer-col a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 
 
+/*-----------------------------------------*/ 
+/* ----- 11. MEDIA (MOVIL Y TABLETS) ----- */
+/*-----------------------------------------*/ 
 
+/* --- AJUSTES DE NAVEGACIÓN (990px) --- */
+@media (max-width: 991px) {
 
-
-
-
-
-
-
-
-
-/*----------------------------------------------*/ 
-/* --- MEDIA QUERIES (RESPONSIVIDAD BÁSICA) --- */
-/*----------------------------------------------*/ 
-
-@media (max-width: 950px) {
-    .menu-ul {
-        gap: 2rem; /* Reduce el espacio entre ítems en pantallas más pequeñas */
+    /* --- AJUSTES DE NAVEGACIÓN (990px) --- */
+    .link-List, .right-group, .navContainer .logo { 
+        display: none; 
+        padding-left: 0; 
+        margin-right: 0; 
     }
-}
 
-@media (max-width: 800px) {
-    /* Ocultar el menú de navegación para pantallas pequeñas/móviles */
-    .menu-ul {
-        display: none;
+    .navContainer { 
+        justify-content: flex-start; 
     }
-    .nav-bar__menu {
-        justify-content: space-between; /* El logo y los botones se separan al máximo */
+
+    .navContainer-Mobile { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        width: 100%; 
+        height: 56px; 
+        padding: 0 20px; 
     }
-    .nav-bar {
-        width: 95%; /* Usamos más espacio en pantallas estrechas */
+
+    .menu-icon { 
+        display: flex; 
+        flex-shrink: 0; 
+    }
+
+    .logoMobile { 
+        display: flex; 
+        flex-grow: 1; 
+        justify-content: center; 
+        margin: 0; 
+        padding: 0; 
+    }
+
+    .navContainer-Mobile::after { 
+        content: ""; 
+        display: block; 
+        height: 40px; 
+        width: 40px; 
+        flex-shrink: 0;
+     }
+
+    .logoMobile img { 
+        height: 32px; 
+        width: auto; 
+    }
+
+    .banner-stories { 
+        flex-direction: row; 
+        text-align: left; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 30px 40px; 
+        max-width: 95%; 
+        margin: 0 auto;
+        min-height: 120px; 
+    }
+       
+    .btn-white { 
+        width: auto; 
+        flex-shrink: 0; 
+    }
+
+    .banner-text { 
+        max-width: 70%; 
+    }
+
+    .main-title { 
+        font-size: 2rem; 
+    }
+
+    /* --- AJUSTES DE TARJETAS (CLAVE) --- */
+    .card {
+        min-width: 170px;
+        flex-shrink: 0;
+    }
+
+    .cards-block {
+        gap: 10px;
+        padding: 0 10px;
+        flex-wrap: wrap;
+    }
+
+    /* --- AJUSTES DE MÉTODOS DE COBRO (QR) --- */
+    .metodo-card, .metodo-card.reverse-layout { 
+        flex-direction: column-reverse; 
+        text-align: center; 
+        padding: 40px 24px; 
+    }
+
+    .metodo-card .metodo-img { 
+        flex: none; 
+        margin: 0 auto 30px auto; 
+        width: 100%; 
+    }
+
+    .metodo-card .metodo-img img { 
+        max-width: 100%; 
+        height: auto; 
+        width: auto; 
+        max-height: 300px; 
+    }
+    
+    /* --- OTROS AJUSTES DE SECCIONES GENERALES --- */
+    .metodo-info { 
+        text-align: center; 
+    }
+
+    .main-title { 
+        font-size: 2rem; 
+    }
+
+    /* ************************************************** */
+    /* --- MEDIA QUERY ESPECÍFICO PARA 767px (TABLET) --- */
+    /* ************************************************** */
+
+
+    @media (max-width: 767px) {
+
+       /* Reducir y centrar la imagen del Hero Banner al 50% */
+        .image-banner {
+            height: auto;
+            margin: 0 auto;
+            top: 0; 
+        }
+       
+        /* 1. LAYOUT DE TARJETAS */
+        .cards-grid { 
+            flex-direction: column; 
+        }
+
+        .card { 
+            width: 100%; 
+            flex-basis: 100%; 
+        }
+
+        .cards-grid .card:nth-child(3) {
+            grid-column: 1 / -1;
+            width: 100%; 
+            max-width: 100%;
+            margin: 0; 
+        }
+
+        /* 2. LAYOUT DEL FOOTER */
+        .footer-columns {
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .footer-container {
+            text-align: center;
+        }
+        
+        /* 3. Banner 'Historias que Vuelan'*/
+        .banner-stories {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            padding: 30px 20px;
+            min-height: unset;
+        }
+
+        .banner-text {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .btn-white {
+            width: 100%;
+        }
+        .logoMobile {
+            justify-content: center;
+        }
+
+        .brand-logo {
+        /* Fuerza el div a actuar como un bloque centrado si text-align no funciona */
+        display: block; 
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px; /* Restaura el margen original */
+    }
+
+        .brand-logo img {
+            /* Asegura que la imagen dentro del div también sea centrado o se adapte */
+            margin-left: auto;
+            margin-right: auto;
+            display: block; 
+        }
     }
 }
