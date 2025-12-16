@@ -2,22 +2,22 @@
 /*-------------------------------*/ 
 /* --- 1. VARIABLES GLOBALES --- */
 /*-------------------------------*/ 
-/* Define los colores y la tipografía base del sitio. */
+/* Define la paleta de colores y la tipografía base del sitio. */
 
 :root {
-    --primary-color: #652bdf;
-    --primary-hover: #531eca;
-    --secondary-color: #31006F;
-    --text-color: #2b2b2b;
-    --bg-color: #ffffff;
-    --bg-icon: #e4d7ff;
-    --bg-body: rgb(252, 251, 255);
-    --white: #ffffff;
-    --gray-light: #e7eaed;
-    --gray-variant:#bebebe;
-    --gray-text: #666666;
+    --color-brand-primary: #652bdf;
+    --color-brand-primary-hover: #531eca;
+    --color-brand-secondary: #31006F;
+    --color-neutral-100: #ffffff;
+    --color-neutral-200: rgb(252, 251, 255);
+    --color-neutral-300: #e7eaed;
+    --color-neutral-500: #bebebe;
+    --color-neutral-700: #666666;
+    --color-neutral-900: #2b2b2b;
+    --color-bg-accent: #e4d7ff;
+    --color-bg-light: #f3eaff;
     --font-main: "Inter", sans-serif;
-    --max-width: 1022px;
+    --container-max-width: 1022px;
 }
 
 /*------------------------------------------*/ 
@@ -35,8 +35,8 @@
 /* Estilos Base para el Body */
 body {
     font-family: var(--font-main);
-    background-color: var(--bg-body);
-    color: var(--text-color);
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-900);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -44,7 +44,6 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    transition: 0.2s ease;
 }
 
 /* Reseteo de listas */
@@ -59,42 +58,76 @@ img {
 }
 
 
-/*------------------------------*/ 
-/*--- 3. ESTILOS DEL HEADER --- */
-/*------------------------------*/ 
+/*---------------------------------------*/ 
+/* --- 3. LAYOUT GLOBAL Y TIPOGRAFÍA --- */
+/*---------------------------------------*/
 
+/* Contenedor estandard */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Títulos y Subtítulos */
+.main-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.main-subtitle {
+    color: var(--color-neutral-700);
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+/* Espaciadores */
+.space-a {
+    height: 24px;
+}
+
+.bottom-space {
+    height: 80px;
+}
+
+/*-------------------------------*/ 
+/*--- 4. NAVEGACIÓN Y HEADER --- */
+/*-------------------------------*/
+
+/* Header Sticky */
 header {
-    background-color: var(--white);
+    background-color: var(--color-neutral-100);
     width: 100%;
-    height: 75px;
+    /* height: 75px; <--- ELIMINADO */
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/*------------------------------*/ 
-/* --- 4. LOGO Y NAVEGACIÓN --- */
-/*------------------------------*/ 
 
-/* Barra de Navegación*/
+/* Barra de Navegación (Desktop) */
 nav {
-    background-color: var(--white);
-    height: 75px;
+    background-color: var(--color-neutral-100);
+    padding: 18px 0;
     width: 100%;
-    border-bottom: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--color-neutral-300);
 }
 
-/* Contenedor Interno de Navegación*/
-.navContainer {
+/* Contenedor Interno de Navegación (Desktop) */
+.container-nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 100%;
     margin: 0 auto;
-    max-width: var(--max-width);
+    max-width: var(--container-max-width);
 }
 
-/* Logo */
+/* Logo (Desktop) */
 .logo {
     display: flex;
     align-items: center;
@@ -108,21 +141,104 @@ nav {
     width: auto;
 }
 
+/* Lista de enlaces */
+.link-List {
+    display: flex;
+    align-items:flex-end;
+}
+
+.list-object {
+    padding: 8px 26px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link-List .list-object:hover {
+    background-color: var(--color-bg-accent); 
+    color: var(--color-brand-secondary);
+}
+
+/* Grupo Derecho Header */
+.right-group {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    padding-right: 20px;
+}
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background-color: var(--color-neutral-500);
+    display: block;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/*-----------------------------------*/ 
+/* ----- 5. ESTILOS DE BOTONES ----- */
+/*-----------------------------------*/
+
+/* Botones de Navegación */
+.button-header {
+    padding: 6px 30px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    height: 37px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-line {
+    border: 1px solid var(--color-brand-primary);
+    color: var(--color-brand-primary);
+    background: transparent;
+}
+
+.button-line:hover {
+    background-color: var(--color-bg-light);
+    color: var(--color-brand-secondary);
+    border: 1px solid var(--color-brand-secondary);
+}
+
+.button-finish {
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-100);
+    border: 1px solid var(--color-brand-primary);
+}
+
+.button-finish:hover {
+    background-color: var(--color-bg-light);
+    color: var(--color-brand-secondary);
+    border: 1px solid var(--color-brand-secondary);
+}
+
 /* Navbar Móvil */
-.navContainer-Mobile {
+.container-nav-Mobile {
     height: 56px;
     display: none;
     align-items: center;
-    background: var(--bg-color);
-    border-bottom: 1px solid var(--gray-light);
+    background: var(--color-neutral-100);
 }
 
 /* Logo Móvil */
-.logoMobile {
+.logo-mobile {
     display: none;
 }
 
-.logoMobile img {
+.logo-mobile img {
     height: 32px;
 }
 
@@ -137,101 +253,46 @@ nav {
 .menu-icon svg {
     width: 100%;
     height: 100%;
-    color: var(--text-color);
+    color: var(--color-neutral-900);
 }
 
-/* Lista de enlaces */
-.link-List {
-    display: flex;
-    align-items:flex-end;
-    gap: 0px;
-    margin: 0;
-}
-
-.list-object {
-    padding: 8px 26px;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
-    height: 40px;
+/* Botones de Contenido General */
+.btn {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
-}
-
-.list-object a:hover {
-    color: var(--secondary-color);
-    background-color: var(--bg-icon);
-}
-
-/* Grupo Derecho Header */
-.right-group {
-    display: flex;
     align-items: center;
-    gap: 26px;
-    padding-right: 20px;
-}
-
-.divider {
-    width: 1px;
-    height: 24px;
-    background-color: var(--gray-variant);
-    display: block;
-}
-
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-/*-------------------------------*/ 
-/* ----- 5. BOTONES HEADER------ */
-/*-------------------------------*/ 
-
-/* Estilo base botones */
-.button-header {
-    padding: 6px 30px;
+    padding: 12px 40px;
     border-radius: 50px;
-    font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
-    height: 37px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
 }
 
-/* contorno botones */
-.button-line {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    background: transparent;
+.btn-primary {
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-100);
+    transition: all 0.2s ease;
 }
 
-.button-line:hover {
-    background-color: #f3eaff;
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+.btn-primary:hover {
+    background-color: var(--color-brand-secondary);
 }
 
-/* boton relleno */
-.button-finish {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: 1px solid var(--primary-color);
+.btn-white {
+    background-color: var(--color-neutral-100);
+    color: var(--color-brand-primary);
+    transition: all 0.2s ease;
 }
 
-.button-finish:hover {
-    background-color: #f3eaff;
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+.btn-white:hover {
+    background-color: black;
+    color: var(--color-bg-accent);
 }
 
-/*---------------------------------*/ 
-/* --- 6. ESTILOS DE SECCIONES --- */
-/*---------------------------------*/ 
+
+/*------------------------------------*/ 
+/* --- 6. SECCIÓNES Y COMPONENTES --- */
+/*------------------------------------*/
 
 /* Banner Principal */
 .hero-banner {
@@ -239,7 +300,7 @@ nav {
     justify-content: center;
     width: 100%;
     padding-top: 3rem;
-    background-color: rgb(252, 251, 255);
+    background-color: var(--color-neutral-200);
 }
 
 .image-banner {
@@ -271,79 +332,6 @@ nav {
     object-fit: contain;
 }
 
-/* Contenedor estandard */
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-/* Titulo Principal */
-.main-title {
-    font-size: 2.3rem;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    margin-bottom: 16px;
-    line-height: 1.2;
-}
-
-/* Subtitulo */
-.main-subtitle {
-    color: var(--gray-text);
-    margin-bottom: 40px;
-    font-size: 14px;
-}
-
-/* Espaciador */
-.space-a {
-    height: 20px;
-}
-
-.bottom-space {
-    height: 80px;
-}
-
-/*----------------------------------*/ 
-/* ----- 7. BOTONES GENERALES------ */
-/*----------------------------------*/ 
-
-/* Estilo de botones de contenido */
-.btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 40px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary-color)
-}
-
-.btn-white {
-    background-color: var(--white);
-    color: var(--primary-color);
-}
-
-.btn-white:hover {
-    background-color: black;
-    color: #e4d7ff;
-}
-
-/*-------------------------------*/ 
-/* --- 8. TARJETAS FLOTANTES --- */
-/*-------------------------------*/ 
-
 /* Bloque de tarjetas */
 .cards-block {
     display: flex;
@@ -356,7 +344,7 @@ nav {
 
 /* Tarjeta individual */
 .card {
-    background: var(--white);
+    background: var(--color-neutral-100);
     flex: 1;
     min-width: 280px;
     padding: 32px;
@@ -385,7 +373,7 @@ nav {
 }
 
 .card:hover .icon-container {
-    color: var(--secondary-color);
+    color: var(--color-brand-secondary);
 }
 
 /* Titulo card */
@@ -397,23 +385,20 @@ nav {
 
 /* Parrafo card */
 .card p {
-    color: var(--gray-text);
+    color: var(--color-neutral-700);
     line-height: 1.5;
     font-size: 0.95rem;
 }
 
-/*--------------------------------*/ 
-/* ----- 9. BANNERS SECTION ----- */
-/*--------------------------------*/ 
-
+/* Banners Section */
 .banner-stories {
-    background-color: var(--secondary-color);
+    background-color: var(--color-brand-secondary);
     border-radius: 32px;
     padding: 30px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--white);
+    color: var(--color-neutral-100);
     text-align: left;
     max-width: 930px;
     margin: 0 auto; 
@@ -431,19 +416,18 @@ nav {
     opacity: 0.9;
 }
 
-
-/*----------------------------------*/ 
-/* ----- 10. METODOS DE COBRO ----- */
-/*----------------------------------*/ 
-
+/* Métodos de Cobro */
 .metodos-grid {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    max-width: 920px; 
+    margin: 0 auto;
+    padding: 24px;
 }
 
 .metodo-card {
-    background: var(--white);
+    background: var(--color-neutral-100);
     border-radius: 32px;
     padding: 50px;
     display: flex;
@@ -464,7 +448,7 @@ nav {
 }
 
 .metodo-info p {
-    color: var(--gray-text);
+    color: var(--color-neutral-700);
     font-size: 13px;
     line-height: 1.6;
     margin-bottom: 100px;
@@ -490,13 +474,13 @@ nav {
     flex-direction: row-reverse;
 }
 
-/*------------------------*/ 
-/* ----- 12. FOOTER ----- */
-/*------------------------*/ 
+/*-------------------------*/ 
+/* ------ 7. FOOTER ------ */
+/*-------------------------*/ 
 
 /* Contenedor principal del footer */
 .footer {
-    background: var(--bg-color);
+    background: var(--color-neutral-100);
     padding: 24px;
 }
 
@@ -504,12 +488,13 @@ nav {
 .footer-container {
     max-width: 920px;
     margin: 0 auto;
-    border-bottom: 1px var(--gray-variant);
+    border-bottom: 1px var(--color-neutral-500);
 }
 
 /* Logo de la marca */
 .brand-logo {
     margin-bottom: 10px;
+    display: block;
 }
 
 .footer-brand img {
@@ -528,7 +513,7 @@ nav {
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 16px;
-    color: var(--text-color);
+    color: var(--color-neutral-900);
 }
 
 /* Lista de nelaces */
@@ -539,50 +524,49 @@ nav {
 /* Enlaces individuales */
 .footer-col a {
     font-size: 13px;
-    color: var(--text-color);
+    color: var(--color-neutral-900);
     transition: color .2s ease;
 }
 
 .footer-col a:hover {
-    color: var(--primary-color);
+    color: var(--color-brand-primary);
     text-decoration: underline;
 }
 
 
-
 /*-----------------------------------------*/ 
-/* ----- 11. MEDIA (MOVIL Y TABLETS) ----- */
-/*-----------------------------------------*/ 
+/* --- 8. ADAPTACIÓN RESPONSIVE (MEDIA) --- */
+/*-----------------------------------------*/
 
-/* --- AJUSTES DE NAVEGACIÓN (990px) --- */
+/* --- TABLET Y MÓVIL (MAX-WIDTH: 991px) --- */
 @media (max-width: 991px) {
 
-    /* --- AJUSTES DE NAVEGACIÓN (990px) --- */
-    .link-List, .right-group, .navContainer .logo { 
+   /* Oculta los elementos internos del desktop */
+    .link-List, .right-group, .container-nav .logo { 
         display: none; 
         padding-left: 0; 
         margin-right: 0; 
     }
 
-    .navContainer { 
-        justify-content: flex-start; 
-    }
-
+    /* Muestra y configura la barra móvil */
     .navContainer-Mobile { 
         display: flex; 
         justify-content: space-between; 
         align-items: center; 
         width: 100%; 
-        height: 56px; 
+        height: 56px; /* Altura ajustada para consistencia visual con desktop */
         padding: 0 20px; 
+        background: var(--color-neutral-100); 
+        border-bottom: 1px solid var(--color-neutral-300); /* Borde único */
     }
 
+    /* Elementos móviles */
     .menu-icon { 
         display: flex; 
         flex-shrink: 0; 
     }
 
-    .logoMobile { 
+    .logo-mobile { 
         display: flex; 
         flex-grow: 1; 
         justify-content: center; 
@@ -590,19 +574,24 @@ nav {
         padding: 0; 
     }
 
-    .navContainer-Mobile::after { 
-        content: ""; 
-        display: block; 
-        height: 40px; 
-        width: 40px; 
-        flex-shrink: 0;
-     }
-
-    .logoMobile img { 
+    .logo-mobile img { 
         height: 32px; 
         width: auto; 
     }
 
+    /* --- AJUSTES DE TARJETAS (Densidad) --- */
+    .card {
+        min-width: 170px;
+        flex-shrink: 0;
+    }
+
+    .cards-block {
+        gap: 10px;
+        padding: 0 10px;
+        flex-wrap: wrap;
+    }
+
+    /* --- AJUSTES DE BANNER --- */
     .banner-stories { 
         flex-direction: row; 
         text-align: left; 
@@ -613,7 +602,7 @@ nav {
         margin: 0 auto;
         min-height: 120px; 
     }
-       
+    
     .btn-white { 
         width: auto; 
         flex-shrink: 0; 
@@ -626,64 +615,27 @@ nav {
     .main-title { 
         font-size: 2rem; 
     }
-
-    /* --- AJUSTES DE TARJETAS (CLAVE) --- */
-    .card {
-        min-width: 170px;
-        flex-shrink: 0;
-    }
-
-    .cards-block {
-        gap: 10px;
-        padding: 0 10px;
-        flex-wrap: wrap;
-    }
-
-    /* --- AJUSTES DE MÉTODOS DE COBRO (QR) --- */
-    .metodo-card, .metodo-card.reverse-layout { 
-        flex-direction: column-reverse; 
-        text-align: center; 
-        padding: 40px 24px; 
-    }
-
-    .metodo-card .metodo-img { 
-        flex: none; 
-        margin: 0 auto 30px auto; 
-        width: 100%; 
-    }
-
-    .metodo-card .metodo-img img { 
-        max-width: 100%; 
-        height: auto; 
-        width: auto; 
-        max-height: 300px; 
-    }
     
-    /* --- OTROS AJUSTES DE SECCIONES GENERALES --- */
-    .metodo-info { 
-        text-align: center; 
+    /* --- AJUSTES DE MÉTODOS DE COBRO (Mantiene Horizontalidad) --- */
+    /* La tarjeta se sigue achicando horizontalmente (gracias a flex: 1) hasta 767px. */
+    .metodo-info p {
+        /* Reduce el margen excesivo de 100px para pantallas más pequeñas. */
+        margin-bottom: 24px; 
     }
 
-    .main-title { 
-        font-size: 2rem; 
-    }
-
-    /* ************************************************** */
-    /* --- MEDIA QUERY ESPECÍFICO PARA 767px (TABLET) --- */
-    /* ************************************************** */
-
-
+    /* --- MÓVIL EXTREMO (MAX-WIDTH: 767px) --- */
     @media (max-width: 767px) {
 
-       /* Reducir y centrar la imagen del Hero Banner al 50% */
+        /* Hero Banner */
         .image-banner {
+            max-width: 100%;
             height: auto;
             margin: 0 auto;
             top: 0; 
         }
-       
-        /* 1. LAYOUT DE TARJETAS */
-        .cards-grid { 
+
+        /* LAYOUT DE TARJETAS */
+        .cards-block { 
             flex-direction: column; 
         }
 
@@ -692,14 +644,36 @@ nav {
             flex-basis: 100%; 
         }
 
-        .cards-grid .card:nth-child(3) {
-            grid-column: 1 / -1;
-            width: 100%; 
-            max-width: 100%;
-            margin: 0; 
+        .metodo-card, .metodo-card.reverse-layout {
+            flex-direction: column;
+            text-align: center; 
+            padding: 40px 24px; 
+        }
+        
+        .metodo-card .metodo-img { 
+            order: 1;
+            flex: none;
+            margin: 0 auto 30px auto; 
+            width: 100%;
         }
 
-        /* 2. LAYOUT DEL FOOTER */
+        .metodo-card .metodo-info {
+            order: 2;
+        }
+
+        .metodo-card .metodo-img img { 
+            max-width: 100%; 
+            height: auto; 
+            width: auto; 
+            max-height: 250px; 
+        }
+
+        .metodo-card .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* AJUSTES DE FOOTER */
         .footer-columns {
             grid-template-columns: 1fr 1fr;
             gap: 32px;
@@ -709,7 +683,20 @@ nav {
             text-align: center;
         }
         
-        /* 3. Banner 'Historias que Vuelan'*/
+        .brand-logo {
+            display: block; 
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px; 
+        }
+
+        .brand-logo img {
+            margin-left: auto;
+            margin-right: auto;
+            display: block; 
+        }
+        
+        /* AJUSTES DE BANNER 'Historias que Vuelan'*/
         .banner-stories {
             flex-direction: column;
             text-align: center;
@@ -726,23 +713,21 @@ nav {
         .btn-white {
             width: 100%;
         }
-        .logoMobile {
-            justify-content: center;
-        }
 
-        .brand-logo {
-        /* Fuerza el div a actuar como un bloque centrado si text-align no funciona */
-        display: block; 
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px; /* Restaura el margen original */
-    }
+        @media (max-width: 410px) {
+            
+            .footer-col h4 {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
 
-        .brand-logo img {
-            /* Asegura que la imagen dentro del div también sea centrado o se adapte */
-            margin-left: auto;
-            margin-right: auto;
-            display: block; 
+            .footer-col a {
+                font-size: 10px;
+            }
+            
+            .footer-col ul li {
+                margin-bottom: 8px;
+            }
         }
     }
 }
