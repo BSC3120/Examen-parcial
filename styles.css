@@ -8,14 +8,18 @@
     --color-brand-primary: #652bdf;
     --color-brand-primary-hover: #531eca;
     --color-brand-secondary: #31006F;
+
     --color-neutral-100: #ffffff;
-    --color-neutral-200: rgb(252, 251, 255);
+    --color-neutral-200: #fcfbff;
     --color-neutral-300: #e7eaed;
     --color-neutral-500: #bebebe;
-    --color-neutral-700: #666666;
+    --color-neutral-700: #6a6a6a;
+    --color-neutral-800: #383737;
     --color-neutral-900: #2b2b2b;
+
     --color-bg-accent: #e4d7ff;
     --color-bg-light: #f3eaff;
+    
     --font-main: "Inter", sans-serif;
     --container-max-width: 1022px;
 }
@@ -33,6 +37,10 @@
 }
 
 /* Estilos Base para el Body */
+html, body {
+    width: 100%;
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--color-neutral-200);
@@ -57,6 +65,13 @@ img {
     display: block;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 83px;         
+  background: #ffffff;     
+}
 
 /*---------------------------------------*/ 
 /* --- 3. LAYOUT GLOBAL Y TIPOGRAFÍA --- */
@@ -66,28 +81,35 @@ img {
 .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 40px 20px;
-    text-align: center;
+    padding: 0px;
 }
+
 
 /* Títulos y Subtítulos */
 .main-title {
-    font-size: 2.3rem;
+    font-size: clamp(32px, 5vw, 40px);
     font-weight: 700;
-    letter-spacing: -0.05em;
-    margin-bottom: 16px;
-    line-height: 1.2;
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+    text-align: center;
+    color: var(--color-neutral-800);
 }
 
 .main-subtitle {
+    text-align: center;
+    font-size: 16px;
     color: var(--color-neutral-700);
     margin-bottom: 40px;
-    font-size: 14px;
+    margin-top: 26px;
 }
 
 /* Espaciadores */
 .space-a {
-    height: 24px;
+    height: 62.5px;
+}
+
+.space-b {
+    height: 72px;
 }
 
 .bottom-space {
@@ -100,129 +122,139 @@ img {
 
 /* Header Sticky */
 header {
-    background-color: var(--color-neutral-100);
-    width: 100%;
-    /* height: 75px; <--- ELIMINADO */
+    background: var(--color-neutral-100);
+    border-bottom: 1px solid var(--color-neutral-300);
     position: sticky;
     top: 0;
+    position: sticky;
     z-index: 1000;
 }
 
-
-/* Barra de Navegación (Desktop) */
-nav {
-    background-color: var(--color-neutral-100);
-    padding: 18px 0;
-    width: 100%;
-    border-bottom: 1px solid var(--color-neutral-300);
-}
-
-/* Contenedor Interno de Navegación (Desktop) */
 .container-nav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    margin: 0 auto;
     max-width: var(--container-max-width);
-}
-
-/* Logo (Desktop) */
-.logo {
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    flex-shrink: 0;
-    padding-left: 60px;
-    margin-right: 10px;
+    padding: 16px;
+    height: 83px;
 }
 
 .logo img {
-    height: 33.7px;
+    height: 37px;
+}
+
+.logo img {
+    height: 37px;
     width: auto;
 }
 
 /* Lista de enlaces */
 .link-List {
     display: flex;
-    align-items:flex-end;
+    margin-left: 20px;
 }
 
 .list-object {
-    padding: 8px 26px;
+    padding: 10px 24px;
+    margin: 0px 4px;
     border-radius: 50px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    transform: translateY(-1px);
 }
 
-.link-List .list-object:hover {
-    background-color: var(--color-bg-accent); 
+.list-object:hover {
+    background: var(--color-bg-accent);
     color: var(--color-brand-secondary);
 }
 
-/* Grupo Derecho Header */
 .right-group {
     display: flex;
     align-items: center;
-    gap: 26px;
-    padding-right: 20px;
+    margin-left: auto;
+    gap: 16px;
+    transform: translateX(-24px);
 }
 
 .divider {
     width: 1px;
     height: 24px;
-    background-color: var(--color-neutral-500);
-    display: block;
+    background: var(--color-neutral-500);
 }
 
 .header-buttons {
     display: flex;
-    align-items: center;
-    gap: 4px;
+    gap: 10px;
+    transform: translateX(20px);
+    transition: all 0.4s ease;
 }
+
 
 /*-----------------------------------*/ 
 /* ----- 5. ESTILOS DE BOTONES ----- */
 /*-----------------------------------*/
 
+
 /* Botones de Navegación */
 .button-header {
-    padding: 6px 30px;
+    height: 41px;
+    padding-left: 33px;
+    padding-right: 33px;
     border-radius: 50px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-    white-space: nowrap;
-    height: 37px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.4s ease;
 }
 
 .button-line {
     border: 1px solid var(--color-brand-primary);
     color: var(--color-brand-primary);
-    background: transparent;
-}
-
-.button-line:hover {
-    background-color: var(--color-bg-light);
-    color: var(--color-brand-secondary);
-    border: 1px solid var(--color-brand-secondary);
 }
 
 .button-finish {
-    background-color: var(--color-brand-primary);
+    background: var(--color-brand-primary);
     color: var(--color-neutral-100);
     border: 1px solid var(--color-brand-primary);
+    transition: all 0.4s ease;
 }
 
-.button-finish:hover {
+.btn {
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 10px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 192px;
+    min-height: 43px;
+    transition: all 0.4s ease;
+}
+
+.btn-primary {
+    background: var(--color-brand-primary);
+    color: var(--color-neutral-100);
+    border: 1px solid var(--color-brand-primary);
+    transition: all 0.4s ease;
+    
+}
+
+.btn-white {
+    background: var(--color-neutral-100);
+    color: var(--color-brand-primary);
+    margin-right: 25px;
+    font-size: 16px;
+    min-width: 192px;
+    min-height: 43px;
+    transition: all 0.8s ease;
+}
+
+.button-header:hover {
+    color: var(--color-brand-primary-hover);
     background-color: var(--color-bg-light);
-    color: var(--color-brand-secondary);
-    border: 1px solid var(--color-brand-secondary);
+    
 }
 
 /* Navbar Móvil */
@@ -236,6 +268,7 @@ nav {
 /* Logo Móvil */
 .logo-mobile {
     display: none;
+    margin-right: 300px;
 }
 
 .logo-mobile img {
@@ -264,14 +297,14 @@ nav {
     padding: 12px 40px;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 16px;
     cursor: pointer;
 }
 
 .btn-primary {
     background-color: var(--color-brand-primary);
     color: var(--color-neutral-100);
-    transition: all 0.2s ease;
+    transition: all 0.4s ease;
 }
 
 .btn-primary:hover {
@@ -281,7 +314,7 @@ nav {
 .btn-white {
     background-color: var(--color-neutral-100);
     color: var(--color-brand-primary);
-    transition: all 0.2s ease;
+    transition: all 0.4s ease;
 }
 
 .btn-white:hover {
@@ -296,30 +329,21 @@ nav {
 
 /* Banner Principal */
 .hero-banner {
+    padding-top: 28px;
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding-top: 3rem;
-    background-color: var(--color-neutral-200);
 }
 
 .image-banner {
-    max-width: 68.5%;
-    height: 100%;
+    max-height: 402px;
+    width: auto;
     border-radius: 28px;
-    height: auto;
-    display: block;
-    position: relative;
-    top: -22px;
 }
 
-/* Contenedor de Imagen de boton carrousel */
 .hero-carrousel__button {
-    width: 100%;
-    height: 65px;
     display: flex;
     justify-content: center;
-    background-color: rgb(252, 251, 255);
+    margin-top: 30px;
 }
 
 /* Imagen insertada de boton carrousel */
@@ -332,401 +356,269 @@ nav {
     object-fit: contain;
 }
 
+/*-------------------------------------*/ 
+/* ------- 8. BENEFICIOS CARDS ------- */
+/*-------------------------------------*/
+
 /* Bloque de tarjetas */
 .cards-block {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin: 0 20px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 317px);
+  gap: 25px;
+  justify-content: center;
+  transform: translateY(-11px);
 }
 
-/* Tarjeta individual */
 .card {
-    background: var(--color-neutral-100);
     flex: 1;
-    min-width: 280px;
-    padding: 32px;
+    background: var(--color-neutral-100);
     border-radius: 16px;
-    text-align: left;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s ease;
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: all 0.4s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
 }
 
-/* Recuandro iconos */
 .icon-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    width: 56px;
-    height: 56px;
+    padding: 19px;
+    width: 62px;
+    height: 62px;
     background: #f0eafc;
     border-radius: 8px;
     box-sizing: border-box;
 }
 
-.card:hover .icon-container {
-    color: var(--color-brand-secondary);
+.icon-image {
+    font-style: normal;
+    font-weight: 400;
+    font-feature-settings: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    width: 24px;
+    height: 24px;
 }
 
-/* Titulo card */
 .card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    font-weight: 700;
+    margin-top: -5px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.625rem;
+    text-align: left;
+    letter-spacing: -0.039em;
 }
 
-/* Parrafo card */
 .card p {
-    color: var(--color-neutral-700);
+    margin-top: 17.5px;
+    font-size: 18px;
     line-height: 1.5;
-    font-size: 0.95rem;
+    color: #6a6a6a;
+    text-align: left;
 }
+
+/*-------------------------------------*/ 
+/* -------- 9. BANNER STORIES -------- */
+/*-------------------------------------*/
+
 
 /* Banners Section */
 .banner-stories {
-    background-color: var(--color-brand-secondary);
+    width: 100%;
+    max-width: 1022px;
+    height: 134px;
+    margin: 21px auto 0;
+    padding: 2px 40px;
+    background: rgb(54, 12, 114);;
     border-radius: 32px;
-    padding: 30px 60px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     color: var(--color-neutral-100);
-    text-align: left;
-    max-width: 930px;
-    margin: 0 auto; 
 }
 
-/* Titulo del banner */
 .banner-text h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+    font-size: 30px;
+    line-height: 2rem;
+    margin-left: 25px;
+    margin-bottom: 13px;
+    text-align: left;
+    letter-spacing: -0.039em;
+    font-weight: 600;
 }
 
-/* Parrafo del banner */
 .banner-text p {
-    font-size: 1rem;
-    opacity: 0.9;
+    opacity: .9;
+    margin-left: 25px;
+    text-align: left;
+    font-size: 18px;
 }
+
+/*----------------------------------------*/ 
+/* -------- 10. METODOS DE COBRO -------- */
+/*----------------------------------------*/
 
 /* Métodos de Cobro */
 .metodos-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    max-width: 920px; 
-    margin: 0 auto;
-    padding: 24px;
+    gap: 48px;
+    margin-top: 48px;
 }
 
 .metodo-card {
     background: var(--color-neutral-100);
     border-radius: 32px;
-    padding: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    gap: 40px;
+    overflow: hidden;
+    height: 350.16px;
+    padding: 0 20px;
 }
 
 .metodo-info {
     flex: 1;
+    padding-right:  40px;
+    z-index: 100;
 }
 
 .metodo-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 16px;
+    font-size: 30px;
+    margin-bottom: 22px;
+    margin-top: 45px;
     font-weight: 600;
+    z-index: 100;
 }
 
 .metodo-info p {
-    color: var(--color-neutral-700);
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 100px;
+    color: var(--color-neutral-900);
+    margin-bottom: 60px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8rem;
+    z-index: 100;
+    
 }
 
 .metodo-img {
     flex: 1;
     display: flex;
     justify-content: center;
+    padding: 0px;
+    transition: transform .4s ease;
+    z-index: 50;
+    
 }
 
-.metodo-img img {
-    max-height: 300px;
-    width: auto;
-    transition: transform 0.4s ease;
+.metodo-img:hover{
+     transform: scale(1.1);
 }
 
-.metodo-card:hover .metodo-img img {
-    transform: scale(1.05);
-}
+/* .metodo-card.reverse-layout {flex-direction: row-reverse; } */
 
-.metodo-card.reverse-layout {
-    flex-direction: row-reverse;
-}
 
-/*-------------------------*/ 
-/* ------ 7. FOOTER ------ */
-/*-------------------------*/ 
+/*-----------------------------*/ 
+/* -------- 11. FOOTER -------- */
+/*-----------------------------*/ 
 
 /* Contenedor principal del footer */
+.section-footer {
+background-color: var(--color-neutral-100);
+}
+
 .footer {
     background: var(--color-neutral-100);
-    padding: 24px;
-}
-
-/* Contenedor interno */
-.footer-container {
-    max-width: 920px;
+    border-bottom: 1px solid var(--color-neutral-300);
+    padding: 20px 20px 0px 20px;
     margin: 0 auto;
-    border-bottom: 1px var(--color-neutral-500);
+    max-width: 1022px;
 }
 
-/* Logo de la marca */
-.brand-logo {
-    margin-bottom: 10px;
-    display: block;
+.footer-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    grid-column-gap: 24px;
+    grid-row-gap: 8px;
 }
 
-.footer-brand img {
-    width: 40px;
-}
-
-/* Columnas del footer */
 .footer-columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    padding: 12px 0px;
 }
 
-/* Titulo de cada columna */
 .footer-col h4 {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 16px;
-    color: var(--color-neutral-900);
 }
 
-/* Lista de nelaces */
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-/* Enlaces individuales */
 .footer-col a {
-    font-size: 13px;
-    color: var(--color-neutral-900);
-    transition: color .2s ease;
+    font-size: 14px;
+    color: var(--color-neutral-700);
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* probá 8px / 12px / 16px */
 }
 
 .footer-col a:hover {
-    color: var(--color-brand-primary);
+    color: #531eca;
     text-decoration: underline;
 }
 
 
-/*-----------------------------------------*/ 
-/* --- 8. ADAPTACIÓN RESPONSIVE (MEDIA) --- */
-/*-----------------------------------------*/
+/*-------------------------------------------*/ 
+/* --- 12. ADAPTACIÓN RESPONSIVE (MEDIA) --- */
+/*-------------------------------------------*/
 
-/* --- TABLET Y MÓVIL (MAX-WIDTH: 991px) --- */
 @media (max-width: 991px) {
-
-   /* Oculta los elementos internos del desktop */
-    .link-List, .right-group, .container-nav .logo { 
-        display: none; 
-        padding-left: 0; 
-        margin-right: 0; 
+    .link-List,
+    .right-group {
+        display: none;
     }
 
-    /* Muestra y configura la barra móvil */
-    .container-nav-Mobile { 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        width: 100%; 
-        height: 40px;
-        padding: 0 20px; 
-        background: var(--color-neutral-100); 
-    }
-
-    /* Elementos móviles */
-    .menu-icon { 
-        display: flex; 
-        flex-shrink: 0; 
-    }
-
-    .logo-mobile { 
-        display: flex; 
-        flex-grow: 1; 
-        justify-content: center; 
-        margin: 0; 
-        padding: 0; 
-    }
-
-    .logo-mobile img { 
-        height: 32px; 
-        width: auto; 
-    }
-
-    /* --- AJUSTES DE TARJETAS (Densidad) --- */
-    .card {
-        min-width: 170px;
-        flex-shrink: 0;
+    .container-nav-Mobile {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .cards-block {
-        gap: 10px;
-        padding: 0 10px;
-        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cards-block {
+        flex-direction: column;
     }
 
-    /* --- AJUSTES DE BANNER --- */
-    .banner-stories { 
-        flex-direction: row; 
-        text-align: left; 
-        justify-content: space-between; 
-        align-items: center; 
-        padding: 30px 40px; 
-        max-width: 95%; 
-        margin: 0 auto;
-        min-height: 120px; 
-    }
-    
-    .btn-white { 
-        width: auto; 
-        flex-shrink: 0; 
+    .banner-stories {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
     }
 
-    .banner-text { 
-        max-width: 70%; 
+    .metodo-card {
+        flex-direction: column;
     }
 
-    .main-title { 
-        font-size: 2rem; 
-    }
-    
-    /* --- AJUSTES DE MÉTODOS DE COBRO (Mantiene Horizontalidad) --- */
-    /* La tarjeta se sigue achicando horizontalmente (gracias a flex: 1) hasta 767px. */
-    .metodo-info p {
-        /* Reduce el margen excesivo de 100px para pantallas más pequeñas. */
-        margin-bottom: 24px; 
-    }
-
-    /* --- MÓVIL EXTREMO (MAX-WIDTH: 767px) --- */
-    @media (max-width: 767px) {
-
-        /* Hero Banner */
-        .image-banner {
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-            top: 0; 
-        }
-
-        /* LAYOUT DE TARJETAS */
-        .cards-block { 
-            flex-direction: column; 
-        }
-
-        .card { 
-            width: 100%; 
-            flex-basis: 100%; 
-        }
-
-        .metodo-card, .metodo-card.reverse-layout {
-            flex-direction: column;
-            text-align: center; 
-            padding: 40px 24px; 
-        }
-        
-        .metodo-card .metodo-img { 
-            order: 1;
-            flex: none;
-            margin: 0 auto 30px auto; 
-            width: 100%;
-        }
-
-        .metodo-card .metodo-info {
-            order: 2;
-        }
-
-        .metodo-card .metodo-img img { 
-            max-width: 100%; 
-            height: auto; 
-            width: auto; 
-            max-height: 250px; 
-        }
-
-        .metodo-card .btn {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        /* AJUSTES DE FOOTER */
-        .footer-columns {
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-        }
-
-        .footer-container {
-            text-align: center;
-        }
-        
-        .brand-logo {
-            display: block; 
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 10px; 
-        }
-
-        .brand-logo img {
-            margin-left: auto;
-            margin-right: auto;
-            display: block; 
-        }
-        
-        /* AJUSTES DE BANNER 'Historias que Vuelan'*/
-        .banner-stories {
-            flex-direction: column;
-            text-align: center;
-            align-items: center;
-            padding: 30px 20px;
-            min-height: unset;
-        }
-
-        .banner-text {
-            max-width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .btn-white {
-            width: 100%;
-        }
-
-        @media (max-width: 410px) {
-            
-            .footer-col h4 {
-                font-size: 12px;
-                margin-bottom: 12px;
-            }
-
-            .footer-col a {
-                font-size: 10px;
-            }
-            
-            .footer-col ul li {
-                margin-bottom: 8px;
-            }
-        }
+    .metodo-info {
+        text-align: center;
+        padding: 24px;
     }
 }
