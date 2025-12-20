@@ -264,10 +264,13 @@ header {
 
 /* Logo Móvil */
 .logo-mobile {
-    display: none;
-    margin-right: 460px;
-    margin-top: -6px;
-}
+   position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* El truco matemático para centrado perfecto */
+        z-index: 10;
+        display: flex;
+    }
 
 .logo-mobile img {
     height: 41px;
@@ -607,6 +610,10 @@ background-color: var(--color-neutral-100);
         display: none;
     }
 
+    .link-List, .right-group, .logo img { 
+        display: none; 
+    }
+
     .logo-mobile {
         display: flex;
     }
@@ -700,7 +707,6 @@ background-color: var(--color-neutral-100);
         flex-direction: column-reverse;
     }
 
-    
     .metodo-img {
         width: 100%;
         display: flex;
@@ -737,7 +743,6 @@ background-color: var(--color-neutral-100);
         margin-bottom: 20px;
     }
 
-    
     .metodo-card .btn {
         width: 100%;
         margin-top: auto;
@@ -747,13 +752,13 @@ background-color: var(--color-neutral-100);
         align-self: stretch;
     }
 
-    .footer-container .logo {
+    .footer-container .logo .logo-mobile {
         display: flex;
         justify-content: center;
         width: 100%;
         margin-bottom: 40px; 
+        float: none;
     }
-
 
     .footer-columns {
         display: grid;
@@ -778,20 +783,19 @@ background-color: var(--color-neutral-100);
     }
 
     .footer-list li {
-        margin-bottom: 8px;
+        margin-bottom: 0x;
     }
 
-
-    .footer-container .logo {
+     .brand-logo {
         display: flex;
-        justify-content: center; 
-        width: 100%;
-        margin-bottom: 30px; 
+        justify-content: center;
+        width: auto;
+        margin-bottom: 10px;
     }
 
-    .footer-container .logo img {
-        max-width: 120px;
-        height: auto;
+    .brand-logo img {
+        height: 41px;
+        width: auto;
     }
 
 
