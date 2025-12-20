@@ -141,10 +141,6 @@ header {
 
 .logo img {
     height: 37px;
-}
-
-.logo img {
-    height: 37px;
     width: auto;
 }
 
@@ -263,16 +259,18 @@ header {
     display: none;
     align-items: center;
     background: var(--color-neutral-100);
+    margin-bottom: 10px;
 }
 
 /* Logo Móvil */
 .logo-mobile {
     display: none;
-    margin-right: 300px;
+    margin-right: 460px;
+    margin-top: -6px;
 }
 
 .logo-mobile img {
-    height: 32px;
+    height: 41px;
 }
 
 /* Menu Hamburguesa */
@@ -362,11 +360,16 @@ header {
 
 /* Bloque de tarjetas */
 .cards-block {
-  display: grid;
-  grid-template-columns: repeat(3, 317px);
-  gap: 25px;
-  justify-content: center;
-  transform: translateY(-11px);
+    display: flex;
+    grid-template-columns: repeat(3, 317px);
+    gap: 25px;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    transform: translateY(-11px);
 }
 
 .card {
@@ -432,7 +435,7 @@ header {
 
 /* Banners Section */
 .banner-stories {
-    width: 100%;
+    width: calc(100% - 20px);
     max-width: 1022px;
     height: 134px;
     margin: 21px auto 0;
@@ -472,6 +475,7 @@ header {
     flex-direction: column;
     gap: 48px;
     margin-top: 48px;
+    width: 100%;
 }
 
 .metodo-card {
@@ -482,6 +486,7 @@ header {
     overflow: hidden;
     height: 350.16px;
     padding: 0 20px;
+    width: 100%;
 }
 
 .metodo-info {
@@ -522,12 +527,10 @@ header {
      transform: scale(1.1);
 }
 
-/* .metodo-card.reverse-layout {flex-direction: row-reverse; } */
 
-
-/*-----------------------------*/ 
+/*------------------------------*/ 
 /* -------- 11. FOOTER -------- */
-/*-----------------------------*/ 
+/*------------------------------*/ 
 
 /* Contenedor principal del footer */
 .section-footer {
@@ -584,10 +587,32 @@ background-color: var(--color-neutral-100);
 /* --- 12. ADAPTACIÓN RESPONSIVE (MEDIA) --- */
 /*-------------------------------------------*/
 
+/* ADAPTACION A 991 */
+
 @media (max-width: 991px) {
+    
+    header {
+    height: 73px;   
+    background: var(--color-neutral-100);
+    border-bottom: 1px solid var(--color-neutral-300);
+    position: sticky;
+    top: 0;
+    position: sticky;
+    z-index: 2000;
+}
+    
     .link-List,
-    .right-group {
+    .right-group,
+    .logo img { 
         display: none;
+    }
+
+    .logo-mobile {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: flex;
     }
 
     .container-nav-Mobile {
@@ -602,6 +627,9 @@ background-color: var(--color-neutral-100);
     }
 }
 
+
+/* ADAPTACION A 767 */
+
 @media (max-width: 767px) {
     .cards-block {
         flex-direction: column;
@@ -609,16 +637,203 @@ background-color: var(--color-neutral-100);
 
     .banner-stories {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start; 
+        justify-content: flex-start;
+        width: calc(100% - 20px); 
+        margin: 0 auto;
+        padding: 40px 24px; 
+        height: auto; 
+        min-height: 150px;
+        border-radius: 16px;
+    }
+    
+    .banner-text {
+        max-width: 100%;
+        margin-bottom: 32px;
+        text-align: left;
+    }
+
+    .banner-text h3 {
+        font-size: 28px;
+        margin-bottom: 12px;
+        line-height: 1.2;
+    }
+
+    .banner-text p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+
+    .banner-stories .btn, 
+    .historias-banner .btn-white {
+        width: 100% !important; 
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+        margin-top: auto;
+        margin-bottom: 10px; 
+    }
+
+    .metodos-section {
+        display: flex;
+        flex-direction: column;
         gap: 20px;
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .metodo-card {
+        display: flex;
+        flex-direction: column; 
+        height: auto;
+        background: var(--color-neutral-100);
+        border-radius: 16px;
+        border: 1px solid var(--color-neutral-300);
+        overflow: hidden;
+        width: 100%;
+        margin: 0; 
+    }
+
+    .metodo-card.reverse-layout {
+        flex-direction: column-reverse;
+    }
+
+    
+    .metodo-img {
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+        padding: 24px 20px 10px 20px; 
+        background-color: transparent;
+    }
+
+    .metodo-img img {
+        max-width: 718px; 
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    
+    .metodo-info {
+        padding: 0 24px 24px 24px;
+        text-align: left;
+        display: flex;
         flex-direction: column;
     }
 
-    .metodo-info {
-        text-align: center;
-        padding: 24px;
+    .metodo-info h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--color-neutral-900);
+    }
+
+    .metodo-info p {
+        font-size: 16px;
+        color: var(--color-neutral-700);
+        margin-bottom: 20px;
+    }
+
+    
+    .metodo-card .btn {
+        width: 100%;
+        margin-top: auto;
+        padding: 14px;
+        display: flex;
+        justify-content: center;
+        align-self: stretch;
+    }
+
+    .footer-container .logo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 40px; 
+    }
+
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        grid-column-gap: 20px;
+        grid-row-gap: 40px; 
+        padding: 0 10px; 
+        width: 100%;
+        max-width: 100%;
+    }
+
+    
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-col h4 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .footer-list li {
+        margin-bottom: 8px;
+    }
+
+
+    .footer-container .logo {
+        display: flex;
+        justify-content: center; 
+        width: 100%;
+        margin-bottom: 30px; 
+    }
+
+    .footer-container .logo img {
+        max-width: 120px;
+        height: auto;
+    }
+
+
+    .footer-columns {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+    
+
+/* ADAPTACION A 480 */
+
+    @media (max-width: 480px) {
+        .footer-columns {
+            grid-column-gap: 10px; 
+        }
+        
+        .footer-col a {
+            font-size: 13px; 
+        }
+        h1, 
+    .banner-text h3 {
+        font-size: 30px !important;
+        line-height: 1.1;
+        letter-spacing: -0.5px; 
+        margin-bottom: 15px;
+    }
+
+    .banner-text p, 
+    .welcome-card p,
+    .metodo-info p {
+        font-size: 16px !important;
+        line-height: 1.4;
+        color: var(--color-neutral-700);
+    }
+
+    .metodo-info h3 {
+        font-size: 24px; 
+    }
+
+    body {
+        padding: 0 5px;
+    }
+
     }
 }
