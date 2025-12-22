@@ -202,7 +202,6 @@ header {
 /* ----- 5. ESTILOS DE BOTONES ----- */
 /*-----------------------------------*/
 
-
 /* Botones de Navegación */
 .button-header {
     min-height: 41px;
@@ -447,7 +446,7 @@ header {
     justify-content: flex-start;
     padding-top: 70px;
     color: #ffffff;
-    pointer-events: none; /* Permite clicks a través del contenedor si es necesario */
+    pointer-events: none;
 }
 
 .slide-overlay h1 {
@@ -471,7 +470,7 @@ header {
 .cta-group {
     display: flex;
     gap: 15px;
-    pointer-events: auto; /* Habilita clicks solo en los botones */
+    pointer-events: auto;
 }
 
 .btn-primary, .btn-secondary {
@@ -590,7 +589,6 @@ header {
 /*-------------------------------------*/ 
 /* -------- 9. BANNER STORIES -------- */
 /*-------------------------------------*/
-
 
 /* Banners Section */
 .banner-stories {
@@ -797,18 +795,20 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(30, 30, 30, 0.85); /* Gris oscuro semitransparente */
-    display: none; /* Oculto por defecto */
+    background-color: rgba(7, 1, 20, 0.85);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     justify-content: center;
     align-items: center;
     z-index: 10000;
-    backdrop-filter: blur(2px); /* Efecto profesional de desenfoque */
+    backdrop-filter: blur(2px);
 }
 
-/* Contenedor del video con medidas exactas */
+/* Contenedor físico del reproductor de video. */
 .video-modal-content {
-    width: 1265px;
-    height: 689px;
+    width: 1486px;
+    height: 758px;
     position: relative;
     background: #000;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
@@ -819,6 +819,7 @@ header {
     height: 100%;
 }
 
+/* Botón de cierre (X) situado fuera del cuadro del video. */
 .video-modal-close {
     position: absolute;
     top: -45px;
@@ -911,12 +912,12 @@ background-color: var(--color-neutral-100);
     font-family: var(--font-main)
 }
 
-.corsiva {
+.variante {
     font-style: italic;
     font-family: adobe-clean, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Trebuchet MS", "Lucida Grande", sans-serif;
 }
 
-.corsiva-2 {
+.variante-2 {
     font-family: var(--font-main);
     font-style: italic;
 }

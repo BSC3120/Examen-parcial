@@ -14,7 +14,6 @@ let currentIndex = 0;
 let isMoving = false;
 
 // --- LÓGICA DEL SLIDER ---
-
 function updateDots(index) {
     dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
@@ -39,11 +38,11 @@ function move(direction) {
             isMoving = false;
         }, 600);
     } else {
-        // CORRECCIÓN PROFESIONAL: Eliminamos track.offsetHeight
+        
         track.style.transition = "none";
         track.prepend(track.lastElementChild);
         
-        // Usamos requestAnimationFrame para sincronizar con el refresco de pantalla
+        
         requestAnimationFrame(() => {
             track.style.transform = `translateX(-50%)`;
             requestAnimationFrame(() => {
@@ -58,31 +57,54 @@ function move(direction) {
     }
 }
 
-// --- LÓGICA DEL VIDEO (MODAL) ---
+// --- LÓGICA DEL VIDEO (MODAL) CON VALIDACIÓN DE SEGURIDAD ---
 
-// URL de YouTube (formato /embed/ para que funcione en el modal)
+// 1. Definimos la URL ---
 const youtubeURL = "https://www.youtube.com/embed/FGns89Rpwos?autoplay=1";
 
-videoTrigger.addEventListener('click', () => {
-    videoIframe.src = youtubeURL;
-    videoModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Bloquea el scroll de la página
-});
-
-function cerrarModal() {
-    videoModal.style.display = 'none';
-    videoIframe.src = ""; // Detiene el video para ahorrar recursos
-    document.body.style.overflow = 'auto'; // Restaura el scroll
+// 2. PROTECCIÓN: Validamos que el elemento exista antes de asignar eventos ---
+if (videoTrigger) {
+    videoTrigger.addEventListener('click', () => {
+        if (videoIframe && videoModal) {
+            videoIframe.src = youtubeURL;
+            videoModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+            
+            
+            videoModal.style.opacity = "0";
+            requestAnimationFrame(() => {
+                videoModal.style.transition = "opacity 0.3s ease";
+                videoModal.style.opacity = "1";
+            });
+        }
+    });
 }
 
-closeBtn.addEventListener('click', cerrarModal);
+// 3. Función de cierre ---
+function cerrarModal() {
+    if (videoModal && videoIframe) {
+        videoModal.style.display = 'none';
+        videoIframe.src = ""; 
+        document.body.style.overflow = 'auto';
+    }
+}
 
-// Cerrar si el usuario hace clic fuera del cuadro de video
+// 4. Asignación de cierre con Optional Chaining ---
+closeBtn?.addEventListener('click', cerrarModal);
+
+// Cerrar si el uaurio toca escape ---
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape" && videoModal.style.display === 'flex') {
+        cerrarModal();
+    }
+});
+
+// Cerrar si el usuario hace clic fuera del cuadro de video ---
 videoModal.addEventListener('click', (e) => {
     if (e.target === videoModal) cerrarModal();
 });
 
-// --- EVENTOS Y TIMERS ---
+// EVENTOS Y TIMERS ---
 let timer = setInterval(() => move('next'), 10000);
 
 const resetTimer = () => { 
