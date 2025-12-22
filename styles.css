@@ -618,7 +618,6 @@ header {
 }
 
 .banner-text p {
-    opacity: .9;
     margin-left: 25px;
     text-align: left;
     font-size: 18px;
@@ -781,10 +780,7 @@ header {
     font-family: var(--font-main);
     font-size: 14px;
     font-weight: 600;
-    white-space: normal;
-    max-width: 260px; 
-    line-height: 1.2;
-    letter-spacing: .01em;
+    white-space: nowrap; 
 }
 
 .video-container iframe {
@@ -926,9 +922,7 @@ background-color: var(--color-neutral-100);
 /*--------------------------------*/ 
 /* -------- 1117 PIXELES -------- */
 /*--------------------------------*/ 
-
 @media (max-width: 1117px) {
-
     :root {
         --img-height: auto; 
     }
@@ -979,7 +973,6 @@ background-color: var(--color-neutral-100);
 /*-------------------------------*/ 
 
 @media (max-width: 991px) {
-
     header {
     height: 73px;   
     background: var(--color-neutral-100);
@@ -1079,15 +1072,7 @@ background-color: var(--color-neutral-100);
     .social-bar {
         font-size: 14px;
     }
-
-    .video-container {
-        width: 380px;
-        height: 209px;
-        margin: 20px auto; 
-    }
-
 }
-
 
 /*-------------------------------*/ 
 /* -------- 767 PIXELES -------- */
@@ -1297,6 +1282,7 @@ background-color: var(--color-neutral-100);
         object-fit: cover;
     }
 
+
     .slide-overlay {
         position: relative;
         width: 100%;
@@ -1330,13 +1316,6 @@ background-color: var(--color-neutral-100);
     .others-links {
         grid-template-columns: 1fr;
     }
-
-    .video-container {
-        width: 347px;
-        height: 191px;
-        margin: 20px auto; 
-    }
-
 }
 
 /*-------------------------------*/ 
