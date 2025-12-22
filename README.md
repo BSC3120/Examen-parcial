@@ -35,9 +35,6 @@ Se evalúa responsive design, buenas prácticas de HTML, uso correcto de media q
 
 **Frontend:** HTML, CSS y JavaScript
 
-**Server:** Node, Express
-
-
 ## Authors
 
 - [@bsc3120](https://bsc3120.github.io/Examen-parcial/)
