@@ -145,7 +145,7 @@
                     <a href="https://navenegocios.ar/blog/nosotros" class="btn btn-white">Conocer más</a>
                 </div>
             </section>
-               
+
             <div class="space-b"></div>
 
             <div class="container seccion-metodos">
@@ -219,21 +219,27 @@
             <div class="video">
                 <h1 class="h1-video">Descubrí todo lo que podés hacer con Nave</h1>
                 <div class="video-section">
-                    <div class="video-container">
+                    <div class="video-container" id="videoTrigger" role="button" aria-label="Ver video de Nave">
                         <div class="boton-play">
-                            <div><svg class="triangulo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                            <svg class="triangulo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                                 <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
-                                </svg>
-                            </div>
+                            </svg>
                         </div>
-
                         <div class="footer-video">
-                            <img src="./images/LogoNave-Tab.png" alt="Logo Nave Tab" class="logo-tab">
+                            <img src="./images/LogoNave-Tab.png" alt="Logo Nave" class="logo-tab">
                             <span class="texto-vuela">Cobrás con Nave, tu negocio vuela 🚀</span>
                         </div>
-                        
                     </div>
-</div>
+
+                    <div id="videoModal" class="video-modal-overlay">
+                        <div class="video-modal-content">
+                            <button class="video-modal-close">&times;</button>
+                            <div class="video-wrapper">
+                                <iframe id="videoIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
