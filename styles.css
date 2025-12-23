@@ -40,9 +40,6 @@
 }
 
 /* Estilos Base para el Body */
-html, body {
-    width: 100%;
-}
 
 body {
     font-family: var(--font-main);
@@ -68,13 +65,6 @@ img {
     display: block;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: 83px;         
-    background: #ffffff;     
-}
 
 /*---------------------------------------*/ 
 /* --- 3. LAYOUT GLOBAL Y TIPOGRAFÍA --- */
@@ -143,6 +133,7 @@ header {
 
 /* Header Sticky */
 header {
+    height: 83px;
     background: var(--color-neutral-100);
     border-bottom: 1px solid var(--color-neutral-300);
     position: sticky;
@@ -161,7 +152,6 @@ header {
 
 .logo img {
     height: 37px;
-    width: auto;
 }
 
 /* Lista de enlaces */
@@ -282,13 +272,12 @@ header {
 }
 
 /* Logo Móvil */
-.logo-mobile {
-    position: absolute;
+    .logo-mobile {
+        position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 10;
-        display: flex;
     }
 
 .logo-mobile img {
@@ -384,8 +373,8 @@ header {
 
 .slide-content {
     width: var(--img-width);
+    min-height: var(--img-height);
     height: auto;
-    min-height: 400px;
     flex-shrink: 0;
     position: relative;
     border-radius: 32px;
@@ -509,15 +498,6 @@ header {
 
 .btn-primary:hover, .btn-secondary:hover {
     opacity: 0.9;
-}
-
-.slide-content {
-    width: var(--img-width);
-    height: var(--img-height);
-    flex-shrink: 0;
-    position: relative; 
-    border-radius: 32px; 
-    overflow: hidden;
 }
 
 /*-------------------------------------*/ 
@@ -786,7 +766,6 @@ header {
     font-family: var(--font-main);
     font-size: 14px;
     font-weight: 600;
-    white-space: nowrap; 
 }
 
 .video-container iframe {
