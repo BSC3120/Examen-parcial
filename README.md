@@ -30,7 +30,6 @@ Se evalúa responsive design, buenas prácticas de HTML, uso correcto de media q
 - **Sección "Video Nave Negocios":** Organización de la sección, con incrustación de video, efecto en el botón de play y apertura del video superpuesto. Texto sobre el video y logo. Con su respectiva responsividad.
 - **Footer:** Diseño y organización del footer, en sus 4 partes, grilla de links, contacto, legales y otros enlaces. Con su respectiva responsividad.
 
-
 ## Tech Stack
 
 **Frontend:** HTML, CSS y JavaScript

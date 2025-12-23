@@ -68,8 +68,7 @@ if (videoTrigger) {
         if (videoIframe && videoModal) {
             videoIframe.src = youtubeURL;
             videoModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
-            
+            document.body.style.overflow = 'hidden';         
             
             videoModal.style.opacity = "0";
             requestAnimationFrame(() => {
