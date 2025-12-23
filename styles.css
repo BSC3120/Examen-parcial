@@ -155,9 +155,10 @@ header {
 }
 
 /* Lista de enlaces */
-.link-List {
+.link-list {
     display: flex;
     margin-left: 20px;
+    white-space: nowrap;
 }
 
 .list-object {
@@ -167,6 +168,7 @@ header {
     font-size: 14px;
     font-weight: 700;
     transform: translateY(-1px);
+    white-space: nowrap;
 }
 
 .list-object:hover {
@@ -212,6 +214,7 @@ header {
     align-items: center;
     justify-content: center;
     transition: all 0.4s ease;
+    white-space: nowrap;
 }
 
 .button-line {
@@ -1047,6 +1050,32 @@ background-color: var(--color-neutral-100);
     }
 }
 
+
+@media (max-widt: 1003px) {
+    .link-list {
+        display: flex;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .list-object {
+        padding: 10px 0px;
+        margin: 0;
+        white-space: nowrap;
+
+    } 
+    
+    .button-header {
+        min-height: 41px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .btn {
+    padding: 10px 0;
+    }
+}
+
 /*-------------------------------*/ 
 /* -------- 991 PIXELES -------- */
 /*-------------------------------*/ 
@@ -1061,13 +1090,13 @@ background-color: var(--color-neutral-100);
     z-index: 2000;
 }
     
-    .link-List,
+    .link-list,
     .right-group,
     .logo img { 
         display: none;
     }
 
-    .link-List, .right-group, .logo img { 
+    .link-list, .right-group, .logo img { 
         display: none; 
     }
 
